@@ -1,5 +1,7 @@
 # react-native-animated-colors
  
+ This library is to Animate Background Color of a View with native feel.
+ 
 *Note: Background color cannot be animated with **useNativeDriver : true***
 *So, this will provide you the **backgroundColor transition super smoothly**.*
 
