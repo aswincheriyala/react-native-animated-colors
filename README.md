@@ -9,7 +9,7 @@
 	npm install --save react-native-animated-colors
 ```
 
-##Usage
+## Usage
 
 ```javascript
 	import AnimatedColorView from 'react-native-animated-colors';
