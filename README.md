@@ -1,12 +1,15 @@
 # react-native-animated-colors
  
+*Note: Background color cannot be animated with **useNativeDriver : true***
+*So, this will provide you the **backgroundColor transition super smoothly**.*
+
 
 <img src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fezgif.com-resize.gif?alt=media" width="300" height="300" />
 
 ## Installation
 
 ```bash
-npm install --save react-native-animated-colors
+npm i react-native-animated-colors
 ```
 
 ## Usage
