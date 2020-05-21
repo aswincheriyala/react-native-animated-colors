@@ -2,7 +2,7 @@
  
 
 
-[![Image](https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fezgif.com-resize.gif?alt=media&token=ece6d66d-3843-475b-86e5-4eb755263b10 "Image")](https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fezgif.com-resize.gif?alt=media&token=ece6d66d-3843-475b-86e5-4eb755263b10 "Image")
+[![Image](https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fezgif.com-resize.gif?alt=media&token=ece6d66d-3843-475b-86e5-4eb755263b10 "Image")](https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fezgif.com-resize.gif?alt=media&token=ece6d66d-3843-475b-86e5-4eb755263b10 "Image" =250x250)
 
 
 
@@ -25,7 +25,7 @@ const Container = () => {
   const [activeIndex, setindex] = useState(0);
   return (
     <View style={styles.container}>
-    
+
       <AnimatedColorView
         activeIndex={activeIndex}
         colors={['green', 'blue', 'red']}
