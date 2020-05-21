@@ -6,13 +6,13 @@
 ## Installation
 
 ```bash
-	npm install --save react-native-animated-colors
+npm install --save react-native-animated-colors
 ```
 
 ## Usage
 
 ```javascript
-	import AnimatedColorView from 'react-native-animated-colors';
+import AnimatedColorView from 'react-native-animated-colors';
 ```
 
 ## Properties
@@ -43,54 +43,54 @@ eg: **if activeIndex is 0, set activeIndex value as 1.** Then the background col
 
 ```javascript
 
-	import React, {useState} from 'react';
-	import {View, Text, StyleSheet, Button} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, Button} from 'react-native';
 
-	import AnimatedColorView from 'react-native-animated-colors';
+import AnimatedColorView from 'react-native-animated-colors';
 
-	const Container = () => {
-	  const [activeIndex, setindex] = useState(0);
-	  return (
-		<View style={styles.container}>
+const Container = () => {
+    const [activeIndex, setindex] = useState(0);
+    return (
+    <View style={styles.container}>
 
-		  <AnimatedColorView
-			activeIndex={activeIndex}
-			colors={['green', 'blue', 'red']}
-			duration={1000}
-			loop={false}
-			style={styles.item}>
-			<Text style={styles.text}>ASWIN C</Text>
-		  </AnimatedColorView>
+        <AnimatedColorView
+        activeIndex={activeIndex}
+        colors={['green', 'blue', 'red']}
+        duration={1000}
+        loop={false}
+        style={styles.item}>
+        <Text style={styles.text}>ASWIN C</Text>
+        </AnimatedColorView>
 
-		  <View style={styles.btn}>
-			<Button title="green" onPress={() => setindex(0)} />
-			<Button title="blue" onPress={() => setindex(1)} />
-			<Button title="red" onPress={() => setindex(2)} />
-		  </View>
-		</View>
-	  );
-	};
+        <View style={styles.btn}>
+        <Button title="green" onPress={() => setindex(0)} />
+        <Button title="blue" onPress={() => setindex(1)} />
+        <Button title="red" onPress={() => setindex(2)} />
+        </View>
+    </View>
+    );
+};
 
-	const styles = StyleSheet.create({
-	  container: {flex: 1, alignItems: 'center', justifyContent: 'center'},
-	  item: {
-		height: 200,
-		width: 200,
-		alignItems: 'center',
-		justifyContent: 'center',
-		marginBottom: 50,
-		borderRadius: 10,
-	  },
-	  text: {
-		color: '#fff',
-		fontSize: 20,
-	  },
-	  btn: {
-		width: '100%',
-		flexDirection: 'row',
-		justifyContent: 'space-evenly',
-	  },
-	});
+const styles = StyleSheet.create({
+    container: {flex: 1, alignItems: 'center', justifyContent: 'center'},
+    item: {
+    height: 200,
+    width: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 50,
+    borderRadius: 10,
+    },
+    text: {
+    color: '#fff',
+    fontSize: 20,
+    },
+    btn: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    },
+});
 
 export default Container;
 
