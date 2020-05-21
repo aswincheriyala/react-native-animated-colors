@@ -5,21 +5,21 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.animatedValue = [];
-    const {colors} = props;
+    const {colors,activeIndex} = props;
     colors &&
       colors.map((item, index) => {
         this.animatedValue.push(new Animated.Value(0));
       });
-    this.animatedValue[0].setValue(1);
+      colors && this.animatedValue[activeIndex].setValue(1); 
   }
   componentDidMount() {
     this.setLoop();
   }
 
   setLoop = () => {
-    const {loop, duration, colors} = this.props;
+    const {loop, duration, colors, activeIndex} = this.props;
     if (loop) {
-      let i = 1;
+      let i =  activeIndex+1;
       this.setInterval = setInterval(() => {
         this.animatedValue.map((item, index) => {
           if (i === index) {
@@ -96,3 +96,10 @@ export default class App extends Component {
     );
   }
 } 
+
+App.defaultProps = {
+  duration: 500,
+  colors: [],
+  activeIndex:0,
+  loop: false,
+};

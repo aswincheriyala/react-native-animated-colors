@@ -1,13 +1,35 @@
 {
   "name": "react-native-animated-colors",
   "version": "1.0.0",
-  "description": "",
+  "description": "Animate between Background Colors super smoothly",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aswincheriyala/react-native-animated-colors"
+  },
+  "keywords": [
+    "react-native",
+    "react-component",
+    "react-native-component",
+    "react",
+    "react native",
+    "mobile",
+    "ios",
+    "android",
+    "ui",
+    "animation",
+    "smooth",
+    "usenativedriver"
+  ],
   "author": "Aswin C",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aswincheriyala/react-native-animated-colors/issues"
+  },
+  "homepage": "https://github.com/aswincheriyala/react-native-animated-colors#readme",
   "devDependencies": {
     "metro-react-native-babel-preset": "^0.59.0"
   }
