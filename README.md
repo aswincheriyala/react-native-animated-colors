@@ -26,11 +26,13 @@ import AnimatedColorView from 'react-native-animated-colors';
 
 **colors**
 >   Array of colors which need to be Animated.
-eg: ['green', 'blue', 'red']
+
+>eg: ['green', 'blue', 'red']
 
 **activeIndex**
 >  Pass the active index(of colors array) of color need to be displayed.
-eg: **if activeIndex is 0, set activeIndex value as 1.** Then the background color will change from **green => blue**
+
+>eg: **if activeIndex is 0, set activeIndex value as 1.** Then the background color will change from **green => blue**
 
 **duration**
 >  Duration of the animation.
