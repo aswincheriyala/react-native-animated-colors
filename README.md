@@ -25,9 +25,9 @@ import AnimatedColorView from 'react-native-animated-colors';
  name                        | description                            | type     | default
 :--------------------------- |:-------------------------------------- | --------:|:------------
  colors                      | List of background colors              |  Array   |  [ ]
- activeIndex                 | Ripple opacity                         |  Number  |  0
- duration                    | Ripple size restriction                |  Number  |  500
- loop                        | Ripple container border radius         |  Boolean |  false
+ activeIndex                 | Active index of color to be displayed  |  Number  |  0
+ duration                    | Duration of animation on transition    |  Number  |  500
+ loop                        | Loop the background colors             |  Boolean |  false
 
 **colors**
 >   Array of colors which need to be Animated.
