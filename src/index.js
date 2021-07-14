@@ -76,7 +76,7 @@ export default class App extends Component {
     }
   }
   render() {
-    const {colors, children} = this.props;
+    const {colors, children, animatedStyle} = this.props;
     const props = this.props;
     return (
       <View {...props}>
@@ -87,6 +87,7 @@ export default class App extends Component {
               style={[
                 StyleSheet.absoluteFill,
                 {backgroundColor: item, opacity},
+                animatedStyle
               ]}
             />
           );
