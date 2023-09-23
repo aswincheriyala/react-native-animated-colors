@@ -59,59 +59,62 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import AnimatedColorView from 'react-native-animated-colors';
 
 const TestAnimation = () => {
-    const [activeIndex, setindex] = useState(0);
-    return (
-        <View style={styles.container}>
-            <AnimatedColorView
-                activeIndex={activeIndex}
-                colors={['green', 'blue', 'red']}
-                loop={false}
-                style={styles.containerStyle}
-                animatedStyle={styles.animatedStyle}
-                duration={500}
-                // Supports all View Props
-                onTouchStart={()=>console.log('pressed')}
-                >
-                <Text style={styles.text}>ASWIN C</Text>
-            </AnimatedColorView>
+  const [activeIndex, setindex] = useState(0);
+  const [loop, setLoop] = useState(false);
+  return (
+    <View style={styles.container}>
+      <AnimatedColorView
+        activeIndex={activeIndex}
+        colors={['green', 'blue', 'red']}
+        loop={loop}
+        style={styles.containerStyle}
+        animatedStyle={styles.animatedStyle}
+        duration={500}
+        // Supports all View Props
+        onTouchStart={() => console.log('pressed')}
+      >
+        <Text style={styles.text}>ASWIN C</Text>
+      </AnimatedColorView>
 
-            <View style={styles.btn}>
-                <Button title="green" onPress={() => setindex(0)} />
-                <Button title="blue" onPress={() => setindex(1)} />
-                <Button title="red" onPress={() => setindex(2)} />
-            </View>
-        </View>
-    );
+      {!loop && <View style={styles.btn}>
+        <Button title="green" onPress={() => setindex(0)} />
+        <Button title="blue" onPress={() => setindex(1)} />
+        <Button title="red" onPress={() => setindex(2)} />
+      </View>}
+      <Button title={`loop (${loop})`} onPress={() => setLoop(val => !val)} />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-    container: { 
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    containerStyle: {
-        height: 200,
-        width: 200,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 20,
-        backgroundColor: 'pink',
-        marginBottom: 50,
-    },
-    animatedStyle: {
-        borderWidth : 5,
-        borderColor: 'grey',
-        borderRadius: 100
-    },
-    text: {
-        fontSize: 20,
-    },
-    btn: {
-        width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-    },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  containerStyle: {
+    height: 200,
+    width: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 20,
+    backgroundColor: 'pink',
+    marginBottom: 50,
+  },
+  animatedStyle: {
+    borderWidth: 5,
+    borderColor: 'grey',
+    borderRadius: 100
+  },
+  text: {
+    fontSize: 20,
+  },
+  btn: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginBottom: 20
+  },
 });
 
 export default TestAnimation;

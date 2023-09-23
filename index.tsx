@@ -15,9 +15,9 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
   setInterval: any = null;
   constructor(props: any) {
     super(props);
-    const {colors, activeIndex} = props;
+    const { colors, activeIndex } = props;
     if (colors.length) {
-      colors.map((item: string, index: number) => {
+      colors.map((_item: string) => {
         this.animatedValue.push(new Animated.Value(0));
       });
       this.animatedValue[activeIndex].setValue(1);
@@ -38,9 +38,9 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
   };
 
   setLoop = () => {
-    const {loop, duration, colors, activeIndex} = this.props;
+    const { loop, duration, colors, activeIndex } = this.props;
     if (loop) {
-      let i = activeIndex + 1;
+      let i = activeIndex === colors.length - 1 ? 0 : activeIndex + 1;
       this.setInterval = setInterval(() => {
         this.animatedValue.map((item, index) => {
           if (i === index) {
@@ -68,7 +68,7 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
   };
 
   setActive = (index: number) => {
-    const {duration} = this.props;
+    const { duration } = this.props;
     this.animatedValue.map((item, i) => {
       if (index !== i) {
         Animated.timing(this.animatedValue[i], {
@@ -87,7 +87,7 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
   };
 
   componentDidUpdate(props: any) {
-    const {activeIndex, loop} = this.props;
+    const { activeIndex, loop } = this.props;
     if (props.activeIndex !== activeIndex) {
       this.setActive(activeIndex);
     }
@@ -97,14 +97,13 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
   }
 
   render() {
-    const {colors, children, animatedStyle = {}} = this.props;
+    const { colors, children, animatedStyle = {} } = this.props;
     const props = this.props;
-    const finalAnimatedStyle = {...animatedStyle};
+    const finalAnimatedStyle = { ...animatedStyle };
     delete finalAnimatedStyle.opacity;
     delete finalAnimatedStyle.position;
     delete finalAnimatedStyle.height;
     delete finalAnimatedStyle.width;
-
     return (
       <View {...props}>
         {colors.map((item, index) => {
@@ -114,7 +113,7 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
               key={`animated-view-${index}`}
               style={[
                 StyleSheet.absoluteFill,
-                {backgroundColor: item, opacity},
+                { backgroundColor: item, opacity },
                 finalAnimatedStyle,
               ]}
             />
