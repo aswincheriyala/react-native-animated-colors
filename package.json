@@ -1,8 +1,8 @@
 {
   "name": "react-native-animated-colors",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Animate between Background Colors super smoothly",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish": "npm publish --access public"
