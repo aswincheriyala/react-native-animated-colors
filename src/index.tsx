@@ -1,25 +1,46 @@
-import React, {Component} from 'react';
-import {View, Animated, StyleSheet} from 'react-native';
+import React, { Component } from 'react';
+import { Animated, StyleSheet, View, ViewStyle } from 'react-native';
 
-export default class App extends Component {
+export default class AnimatedColorView extends Component<AnimatedColorViewProps> {
+  static defaultProps: Partial<AnimatedColorViewProps> = {
+    duration: 500,
+    colors: [],
+    activeIndex: 0,
+    loop: false,
+    animatedStyle: {},
+    style: {},
+  };
+
+  animatedValue: Animated.Value[] = [];
+  setInterval: any = null;
   constructor(props) {
     super(props);
-    this.animatedValue = [];
-    const {colors,activeIndex} = props;
-    colors &&
+    const {colors, activeIndex} = props;
+    if (colors.length) {
       colors.map((item, index) => {
         this.animatedValue.push(new Animated.Value(0));
       });
-      colors && this.animatedValue[activeIndex].setValue(1); 
+      this.animatedValue[activeIndex].setValue(1);
+    }
   }
+
   componentDidMount() {
+    this.clearLoop();
     this.setLoop();
   }
+
+  componentWillUnmount() {
+    this.clearLoop();
+  }
+
+  clearLoop = () => {
+    if (this.setInterval) clearInterval(this.setInterval);
+  };
 
   setLoop = () => {
     const {loop, duration, colors, activeIndex} = this.props;
     if (loop) {
-      let i =  activeIndex+1;
+      let i = activeIndex + 1;
       this.setInterval = setInterval(() => {
         this.animatedValue.map((item, index) => {
           if (i === index) {
@@ -42,13 +63,11 @@ export default class App extends Component {
         }
       }, duration);
     } else {
-      if (this.setInterval) {
-        clearInterval(this.setInterval);
-      }
+      this.clearLoop();
     }
   };
 
-  setActive = (index) => {
+  setActive = index => {
     const {duration} = this.props;
     this.animatedValue.map((item, i) => {
       if (index !== i) {
@@ -66,28 +85,37 @@ export default class App extends Component {
       }
     });
   };
+
   componentDidUpdate(props) {
     const {activeIndex, loop} = this.props;
     if (props.activeIndex !== activeIndex) {
       this.setActive(activeIndex);
     }
     if (props.loop !== loop) {
-      this.setLoop(loop);
+      this.setLoop();
     }
   }
+
   render() {
-    const {colors, children, animatedStyle} = this.props;
+    const {colors, children, animatedStyle = {}} = this.props;
     const props = this.props;
+    const finalAnimatedStyle = {...animatedStyle};
+    delete finalAnimatedStyle.opacity;
+    delete finalAnimatedStyle.position;
+    delete finalAnimatedStyle.height;
+    delete finalAnimatedStyle.width;
+
     return (
       <View {...props}>
         {colors.map((item, index) => {
           const opacity = this.animatedValue[index];
           return (
             <Animated.View
+              key={`animated-view-${index}`}
               style={[
                 StyleSheet.absoluteFill,
                 {backgroundColor: item, opacity},
-                animatedStyle
+                finalAnimatedStyle,
               ]}
             />
           );
@@ -96,11 +124,14 @@ export default class App extends Component {
       </View>
     );
   }
-} 
+}
 
-App.defaultProps = {
-  duration: 500,
-  colors: [],
-  activeIndex:0,
-  loop: false,
-};
+interface AnimatedColorViewProps {
+  duration: number;
+  colors: string[];
+  activeIndex: number;
+  loop: boolean;
+  animatedStyle: ViewStyle;
+  style: ViewStyle;
+  children: any;
+}

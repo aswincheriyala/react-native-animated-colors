@@ -20,6 +20,7 @@ npm i react-native-animated-colors
 import AnimatedColorView from 'react-native-animated-colors';
 ```
 
+
 ## Properties
 
  name                        | description                            | type     | default
@@ -28,6 +29,8 @@ import AnimatedColorView from 'react-native-animated-colors';
  activeIndex                 | Active index of color to be displayed  |  Number  |  0
  duration                    | Duration of animation on transition    |  Number  |  500
  loop                        | Loop the background colors             |  Boolean |  false
+ animatedStyle               | Animating view style                   |  Object  |  {}
+ style                       | Container view style                   |  Object  |  {}
 
 **colors**
 >   Array of colors which need to be Animated.
@@ -50,56 +53,68 @@ import AnimatedColorView from 'react-native-animated-colors';
 
 ```javascript
 
-import React, {useState} from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
 
+import React, { useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import AnimatedColorView from 'react-native-animated-colors';
 
-const Container = () => {
+const TestAnimation = () => {
     const [activeIndex, setindex] = useState(0);
     return (
-    <View style={styles.container}>
+        <View style={styles.container}>
+            <AnimatedColorView
+                activeIndex={activeIndex}
+                colors={['green', 'blue', 'red']}
+                loop={false}
+                style={styles.containerStyle}
+                animatedStyle={styles.animatedStyle}
+                duration={500}
+                // Supports all View Props
+                onTouchStart={()=>console.log('pressed')}
+                >
+                <Text style={styles.text}>ASWIN C</Text>
+            </AnimatedColorView>
 
-        <AnimatedColorView
-        activeIndex={activeIndex}
-        colors={['green', 'blue', 'red']}
-        duration={1000}
-        loop={false}
-        style={styles.item}>
-        <Text style={styles.text}>ASWIN C</Text>
-        </AnimatedColorView>
-
-        <View style={styles.btn}>
-        <Button title="green" onPress={() => setindex(0)} />
-        <Button title="blue" onPress={() => setindex(1)} />
-        <Button title="red" onPress={() => setindex(2)} />
+            <View style={styles.btn}>
+                <Button title="green" onPress={() => setindex(0)} />
+                <Button title="blue" onPress={() => setindex(1)} />
+                <Button title="red" onPress={() => setindex(2)} />
+            </View>
         </View>
-    </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {flex: 1, alignItems: 'center', justifyContent: 'center'},
-    item: {
-    height: 200,
-    width: 200,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 50,
-    borderRadius: 10,
+    container: { 
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    containerStyle: {
+        height: 200,
+        width: 200,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 20,
+        backgroundColor: 'pink',
+        marginBottom: 50,
+    },
+    animatedStyle: {
+        borderWidth : 5,
+        borderColor: 'grey',
+        borderRadius: 100
     },
     text: {
-    color: '#fff',
-    fontSize: 20,
+        fontSize: 20,
     },
     btn: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
     },
 });
 
-export default Container;
+export default TestAnimation;
 
 
 ```
@@ -109,4 +124,4 @@ export default Container;
 
 ISC License
 
-Copyright 2022-2023 Aswin C. All rights reserved.
+Copyright Aswin C. All rights reserved.
