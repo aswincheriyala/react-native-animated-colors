@@ -9,6 +9,7 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
     loop: false,
     animatedStyle: {},
     style: {},
+    startDelay: 0
   };
 
   animatedValue: Animated.Value[] = [];
@@ -37,9 +38,11 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
     if (this.setInterval) clearInterval(this.setInterval);
   };
 
-  setLoop = () => {
-    const { loop, duration, colors, activeIndex } = this.props;
+  setLoop = async () => {
+    const { loop, duration, colors, activeIndex, startDelay } = this.props;
+    this.clearLoop();
     if (loop) {
+      if(startDelay > 0) await new Promise(resolve => setTimeout(resolve, startDelay));
       let i = activeIndex === colors.length - 1 ? 0 : activeIndex + 1;
       this.setInterval = setInterval(() => {
         this.animatedValue.map((item, index) => {
@@ -62,8 +65,6 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
           i = 0;
         }
       }, duration);
-    } else {
-      this.clearLoop();
     }
   };
 
@@ -88,11 +89,11 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
 
   componentDidUpdate(props: any) {
     const { activeIndex, loop } = this.props;
-    if (props.activeIndex !== activeIndex) {
-      this.setActive(activeIndex);
-    }
     if (props.loop !== loop) {
       this.setLoop();
+    }
+    if (props.activeIndex !== activeIndex) {
+      this.setActive(activeIndex);
     }
   }
 
@@ -133,4 +134,5 @@ interface AnimatedColorViewProps {
   animatedStyle: ViewStyle;
   style: ViewStyle;
   children: any;
+  startDelay: number;
 }

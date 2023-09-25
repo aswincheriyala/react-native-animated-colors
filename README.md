@@ -7,6 +7,9 @@
 
 
 <img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fanim.gif?alt=media"  width="300"  height="400" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Floadanim.gif?alt=media"  width="300"  height="400" />
+
 
 ## Installation
 
@@ -29,6 +32,7 @@ import AnimatedColorView from 'react-native-animated-colors';
  activeIndex                 | Active index of color to be displayed  |  Number  |  0
  duration                    | Duration of animation on transition    |  Number  |  500
  loop                        | Loop the background colors             |  Boolean |  false
+ startDelay                  | Loop start delay                       |  Number  |  0
  animatedStyle               | Animating view style                   |  Object  |  {}
  style                       | Container view style                   |  Object  |  {}
 
@@ -48,12 +52,13 @@ import AnimatedColorView from 'react-native-animated-colors';
 **loop**
 >  If true, will start looping the background color with the provided colors.
 
+**startDelay**
+>  If set, will start looping after the delay.
+
 
 ## Example
 
 ```javascript
-
-
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import AnimatedColorView from 'react-native-animated-colors';
@@ -118,8 +123,41 @@ const styles = StyleSheet.create({
 });
 
 export default TestAnimation;
+```
 
+## Skelton Loader Example
 
+```javascript
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import AnimatedColorView from 'react-native-animated-colors';
+
+export default function SkeltonLoader() {
+  return (
+    <View style={styles.container}>
+      {[1, 2, 3, 4, 5].map((x, i) => (
+        <AnimatedColorView
+          key={x.toString()}
+          style={styles.row}
+          colors={['lightgrey', 'transparent']}
+          loop={true}
+          startDelay={i * 100}
+        />
+      ))}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20
+  },
+  row: {
+    height: 60,
+    marginBottom: 10,
+  },
+});
 ```
 
 
