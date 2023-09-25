@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Animated, StyleSheet, View, ViewStyle } from 'react-native';
+import { Animated, Easing, EasingFunction, StyleSheet, View, ViewStyle } from 'react-native';
 
 export default class AnimatedColorView extends Component<AnimatedColorViewProps> {
   static defaultProps: Partial<AnimatedColorViewProps> = {
@@ -9,19 +9,20 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
     loop: false,
     animatedStyle: {},
     style: {},
-    startDelay: 0
+    startDelay: 0,
+    easing: Easing.linear
   };
 
-  animatedValue: Animated.Value[] = [];
+  animatedValues: Animated.Value[] = [];
   setInterval: any = null;
   constructor(props: any) {
     super(props);
     const { colors, activeIndex } = props;
     if (colors.length) {
       colors.map((_item: string) => {
-        this.animatedValue.push(new Animated.Value(0));
+        this.animatedValues.push(new Animated.Value(0));
       });
-      this.animatedValue[activeIndex].setValue(1);
+      this.animatedValues[activeIndex].setValue(1);
     }
   }
 
@@ -39,24 +40,26 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
   };
 
   setLoop = async () => {
-    const { loop, duration, colors, activeIndex, startDelay } = this.props;
+    const { loop, duration, colors, activeIndex, startDelay, easing } = this.props;
     this.clearLoop();
     if (loop) {
       if(startDelay > 0) await new Promise(resolve => setTimeout(resolve, startDelay));
       let i = activeIndex === colors.length - 1 ? 0 : activeIndex + 1;
       this.setInterval = setInterval(() => {
-        this.animatedValue.map((item, index) => {
+        this.animatedValues.map((item, index) => {
           if (i === index) {
             Animated.timing(item, {
               toValue: 1,
               duration,
               useNativeDriver: true,
+              easing: easing
             }).start();
           } else {
             Animated.timing(item, {
               toValue: 0,
               duration,
               useNativeDriver: true,
+              easing: easing
             }).start();
           }
         });
@@ -69,19 +72,21 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
   };
 
   setActive = (index: number) => {
-    const { duration } = this.props;
-    this.animatedValue.map((item, i) => {
+    const { duration, easing } = this.props;
+    this.animatedValues.map((item, i) => {
       if (index !== i) {
-        Animated.timing(this.animatedValue[i], {
+        Animated.timing(this.animatedValues[i], {
           toValue: 0,
           duration,
           useNativeDriver: true,
+          easing: easing
         }).start();
       } else {
-        Animated.timing(this.animatedValue[index], {
+        Animated.timing(this.animatedValues[index], {
           toValue: 1,
           duration,
           useNativeDriver: true,
+          easing: easing
         }).start();
       }
     });
@@ -108,7 +113,7 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
     return (
       <View {...props}>
         {colors.map((item, index) => {
-          const opacity = this.animatedValue[index];
+          const opacity = this.animatedValues[index];
           return (
             <Animated.View
               key={`animated-view-${index}`}
@@ -135,4 +140,5 @@ interface AnimatedColorViewProps {
   style: ViewStyle;
   children: any;
   startDelay: number;
+  easing: EasingFunction
 }

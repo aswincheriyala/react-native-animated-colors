@@ -24,15 +24,16 @@ import AnimatedColorView from 'react-native-animated-colors';
 
 ## Properties
 
- name                        | description                            | type     | default
-:--------------------------- |:-------------------------------------- | --------:|:------------
- colors                      | List of background colors              |  Array   |  [ ]
- activeIndex                 | Active index of color to be displayed  |  Number  |  0
- duration                    | Duration of animation on transition    |  Number  |  500
- loop                        | Loop the background colors             |  Boolean |  false
- startDelay                  | Loop start delay                       |  Number  |  0
- animatedStyle               | Animating view style                   |  Object  |  {}
- style                       | Container view style                   |  Object  |  {}
+ name                        | description                            | type             | default
+:--------------------------- |:-------------------------------------- | ----------------:|:------------
+ colors                      | List of background colors              |  Array           |  [ ]
+ activeIndex                 | Active index of color to be displayed  |  Number          |  0
+ duration                    | Duration of animation on transition    |  Number          |  500
+ easing                      | Animation easing function              |  EasingFunction  |  Easing.linear
+ loop                        | Loop the background colors             |  Boolean         |  false
+ startDelay                  | Loop start delay                       |  Number          |  0
+ animatedStyle               | Animating view style                   |  Object          |  {}
+ style                       | Container view style                   |  Object          |  {}
 
 **colors**
 >   Array of colors which need to be Animated.
