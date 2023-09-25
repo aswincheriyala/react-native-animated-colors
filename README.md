@@ -54,7 +54,9 @@ import AnimatedColorView from 'react-native-animated-colors';
 >  If set, will start looping after the delay.
 
 <br />
+
 ## Example
+
 <img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fanim.gif?alt=media"  width="300"  height="400" />
 
 ```javascript
@@ -123,8 +125,11 @@ const styles = StyleSheet.create({
 
 export default TestAnimation;
 ```
+
 <br />
+
 ## Skelton Loader Example
+
 <img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Floadanim.gif?alt=media"  width="300"  height="400" />
 
 ```javascript
@@ -159,7 +164,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 <br />
+
 ## Copyright and License
 
 ISC License
