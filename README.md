@@ -6,7 +6,7 @@
 *So, this will provide you the **backgroundColor transition super smoothly**.*
 
 
-<img src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fezgif.com-resize.gif?alt=media" width="300" height="300" />
+<img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fanim.gif?alt=media"  width="300"  height="400" />
 
 ## Installation
 
