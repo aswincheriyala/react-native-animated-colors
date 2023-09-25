@@ -6,7 +6,7 @@
 *So, this will provide you the **backgroundColor transition super smoothly**.*
 
 
-<img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fanim.gif?alt=media"  width="300"  height="400" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Floadanim.gif?alt=media"  width="300"  height="400" />
+<img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fezgif.com-resize.gif?alt=media"  width="300"  height="300" />
 
 
 ## Installation
@@ -53,8 +53,9 @@ import AnimatedColorView from 'react-native-animated-colors';
 **startDelay**
 >  If set, will start looping after the delay.
 
-
+<br />
 ## Example
+<img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fanim.gif?alt=media"  width="300"  height="400" />
 
 ```javascript
 import React, { useState } from 'react';
@@ -122,8 +123,9 @@ const styles = StyleSheet.create({
 
 export default TestAnimation;
 ```
-
+<br />
 ## Skelton Loader Example
+<img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Floadanim.gif?alt=media"  width="300"  height="400" />
 
 ```javascript
 import React from 'react';
@@ -157,8 +159,7 @@ const styles = StyleSheet.create({
   },
 });
 ```
-
-
+<br />
 ## Copyright and License
 
 ISC License
