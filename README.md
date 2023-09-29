@@ -1,18 +1,21 @@
-# react-native-animated-colors
- 
- This library is to Animate Background Color of a View with native feel.
- 
-*Note: Background color cannot be animated with **useNativeDriver : true***
-*So, this will provide you the **backgroundColor transition super smoothly**.*
+# React Native Animated Colors
 
+🚀 Elevate your React Native app's user interface with **React Native Animated Colors** – a powerful library that makes animating background colors a breeze, delivering a seamless and native-like experience for your users.
 
-<img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fezgif.com-resize.gif?alt=media"  width="300"  height="300" />
+<img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Fezgif.com-resize.gif?alt=media"  width="300"  height="300" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Floadanim.gif?alt=media"  width="300"  height="400" />
 
+## Key Features
+
+- **Smooth Animations**: Achieve silky-smooth background color transitions without compromising on performance.
+
+- **No Native Driver Limitations**: Bypass the limitations of `useNativeDriver: true`. Our library provides you with an intuitive solution for animating background colors, ensuring your app's visuals are always engaging.
+
+- **Enhanced Visuals**: Take your app's visual appeal to the next level with dynamic and eye-catching background animations. Captivate your users and keep them engaged with your content.
 
 ## Installation
 
 ```bash
-npm i react-native-animated-colors
+npm install react-native-animated-colors
 ```
 
 ## Usage
@@ -35,24 +38,23 @@ import AnimatedColorView from 'react-native-animated-colors';
  animatedStyle               | Animating view style                   |  Object          |  {}
  style                       | Container view style                   |  Object          |  {}
 
-**colors**
->   Array of colors which need to be Animated.
+### Usage
 
->eg: ['green', 'blue', 'red']
+- **`colors`**: An array of background colors that you want to animate. For example: `['green', 'blue', 'red']`.
 
-**activeIndex**
->  Pass the active index(of colors array) of color need to be displayed.
+- **`activeIndex`**: Set this property to the index of the color you want to be displayed initially. For example, if `activeIndex` is `0`, setting it to `1` will transition the background color from green to blue.
 
->eg: **if activeIndex is 0, set activeIndex value as 1.** Then the background color will change from **green => blue**
+- **`duration`**: Specify the duration (in milliseconds) of the color transition animation.
 
-**duration**
->  Duration of the animation.
+- **`easing`**: The easing function for the animation. You can use standard easing functions provided by React Native or provide your custom easing function.
 
-**loop**
->  If true, will start looping the background color with the provided colors.
+- **`loop`**: When set to `true`, the background color will loop through the provided colors.
 
-**startDelay**
->  If set, will start looping after the delay.
+- **`startDelay`**: If you want to introduce a delay before animating the colors, set this property with the desired delay duration (in milliseconds).
+
+- **`animatedStyle`**: Use this property to define additional style properties for the animating view.
+
+- **`style`**: Set the style properties for the container view.
 
 <br />
 
@@ -130,8 +132,6 @@ export default TestAnimation;
 <br />
 
 ## Skelton Loader Example
-
-<img  src="https://firebasestorage.googleapis.com/v0/b/aswinc-90380.appspot.com/o/images%2Floadanim.gif?alt=media"  width="300"  height="400" />
 
 ```javascript
 import React from 'react';

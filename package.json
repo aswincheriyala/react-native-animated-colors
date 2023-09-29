@@ -1,6 +1,6 @@
 {
   "name": "react-native-animated-colors",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Animate between Background Colors super smoothly",
   "main": "index.tsx",
   "scripts": {

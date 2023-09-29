@@ -71,8 +71,9 @@ export default class AnimatedColorView extends Component<AnimatedColorViewProps>
     }
   };
 
-  setActive = (index: number) => {
-    const { duration, easing } = this.props;
+  setActive = async (index: number) => {
+    const { duration, easing, startDelay } = this.props;
+    if(startDelay > 0) await new Promise(resolve => setTimeout(resolve, startDelay));
     this.animatedValues.map((item, i) => {
       if (index !== i) {
         Animated.timing(this.animatedValues[i], {
